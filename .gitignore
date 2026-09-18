@@ -1,0 +1,11 @@
+# Ключи подписи и пароли сюда попадать не должны никогда
+*.jks
+*.keystore
+*.p12
+*.pem
+key.properties
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

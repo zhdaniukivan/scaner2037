@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="2037 — игра для тех, кто ходит пешком. Телефон становится сканером следопыта: мир в радиусе 500 м и сигналы существ, пришедших после Слияния.">
+<title>2037 — сканер следопыта</title>
+<link rel="icon" href="icon-512.png">
+<style>
+  :root { --bg: #0E0F0C; --panel: #1A1C16; --line: #34382B; --amber: #FFB000; --signal: #9BE564; --text: #E6E2D3; --muted: #8A8672;
+          --mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace; --sans: "Segoe UI", Roboto, system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 1.04rem/1.6 var(--sans); }
+  main { max-width: 900px; margin: 0 auto; padding: 0 16px 4rem; }
+  .cover { display: block; width: 100%; height: auto; border-bottom: 1px solid var(--line); }
+  h1 { font: 700 clamp(2.4rem, 9vw, 4.2rem)/1 var(--mono); letter-spacing: .12em; color: var(--amber); margin: 2.2rem 0 .4rem; }
+  .tag { font: 500 .95rem var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 2rem; }
+  h2 { font: 700 1rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--signal); margin: 2.6rem 0 .7rem; }
+  p { max-width: 66ch; }
+  .lead { font-size: 1.18rem; }
+  ul { padding-left: 1.2rem; max-width: 66ch; } li { margin: .45rem 0; }
+  a { color: var(--amber); text-underline-offset: .15em; }
+  .steps { counter-reset: s; list-style: none; padding: 0; }
+  .steps li { counter-increment: s; position: relative; padding: 10px 12px 10px 48px; margin: 8px 0; background: var(--panel); border: 1px solid var(--line); border-radius: 4px; overflow-wrap: anywhere; }
+  .steps li::before { content: counter(s); position: absolute; left: 14px; top: 9px; font: 700 1.1rem var(--mono); color: var(--amber); }
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 1rem 0; }
+  .shots img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; display: block; }
+  footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--line); color: var(--muted); font: .85rem/1.6 var(--mono); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
+</style>
+</head>
+<body>
+<img class="cover" src="feature-ru.png" alt="2037 — сканер следопыта" width="1024" height="500">
+<main>
+  <h1>2037</h1>
+  <p class="tag">сканер следопыта · игра для тех, кто ходит пешком</p>
+
+  <p class="lead">В 2037 году Земля столкнулась со своей альтернативной версией. Миры не уничтожили друг друга — они срослись. Это назвали Слиянием. Улица осталась прежней, а вот кто по ней теперь ходит — вопрос.</p>
+  <p>Телефон превращается в сканер следопыта — потёртый полевой прибор, который видит то, чего не видит глаз. Он показывает мир в радиусе 500 метров вокруг вас и ловит сигналы существ. Кто именно там — прибор не знает. Узнать можно одним способом: дойти.</p>
+
+  <div class="shots">
+    <img src="shot-1.png" alt="Карта слившегося мира и сигналы вокруг" loading="lazy" width="1080" height="1920">
+    <img src="shot-2.png" alt="Охота по следу: метка и прочитанные следы" loading="lazy" width="1080" height="1920">
+    <img src="shot-3.png" alt="Существо выслежено: страница бестиария проявилась" loading="lazy" width="1080" height="1920">
+    <img src="shot-4.png" alt="Потеря сигнала на скорости транспорта" loading="lazy" width="1080" height="1920">
+  </div>
+
+  <h2>Идёт закрытое тестирование</h2>
+  <p>Игра делается по шагам, и каждый шаг проверяется на улице. Уже работает главное — охота по следу: метки, следы, шесть характеров существ, бестиарий, страницы которого проявляются. Встреча через камеру и поимка — следующие.</p>
+  <ol class="steps">
+    <li>Вступите в группу тестировщиков: <a href="https://groups.google.com/g/scanner2037-testers">groups.google.com/g/scanner2037-testers</a></li>
+    <li>Станьте тестировщиком: <a href="https://play.google.com/apps/testing/app.g2037.scanner">play.google.com/apps/testing/app.g2037.scanner</a></li>
+    <li>Установите игру из Google Play: <a href="https://play.google.com/store/apps/details?id=app.g2037.scanner">play.google.com/store/apps/details?id=app.g2037.scanner</a></li>
+    <li>Выйдите на улицу и возьмите след. Расскажите, интересно ли по нему идти и не ведут ли метки туда, куда идти нельзя.</li>
+  </ol>
+
+  <h2>Правила, которые не изменятся</h2>
+  <ul>
+    <li><strong>Только пешком.</strong> До 5 км/ч — полная игра. На бегу экран уходит в помехи, чтобы никто ни во что не врезался. В транспорте игра не работает.</li>
+    <li><strong>Все равны.</strong> Покупок за настоящие деньги не будет. Сила и доступ открываются пройденными километрами.</li>
+    <li><strong>Безопасность важнее игры.</strong> Смотрите по сторонам, а не в экран.</li>
+  </ul>
+
+  <p><a href="privacy.html">Политика конфиденциальности</a></p>
+
+  <hr>
+
+  <div lang="en">
+  <h2>In English</h2>
+  <p class="lead">In 2037 the Earth collided with an alternate version of itself. The two worlds did not destroy each other — they grew together. People called it the Merge. The street is the same as ever. Who walks it now is another question.</p>
+  <p>Your phone becomes a tracker's scanner: a worn field instrument that sees what the eye cannot. It shows the world within 500 metres of you and picks up signals of the creatures that came after the Merge. What exactly is out there, the scanner cannot tell. There is one way to find out: walk there.</p>
+  <p>The game is in closed testing. Its heart already works: tracking — marks, traces, six creature temperaments, and a bestiary whose pages come into focus. The camera encounter and the capture come next. To join, use the three links above.</p>
+  <p><a href="privacy.html">Privacy Policy</a></p>
+  </div>
+
+  <footer>
+    Карта · Map: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · <a href="https://openfreemap.org/">OpenFreeMap</a><br>
+    Связь · Contact: <a href="mailto:zhdaniuk.python.dev@gmail.com">zhdaniuk.python.dev@gmail.com</a>
+  </footer>
+</main>
+</body>
+</html>

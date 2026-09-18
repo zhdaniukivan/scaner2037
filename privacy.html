@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Политика конфиденциальности — 2037</title>
+<style>
+  :root { --bg: #0E0F0C; --panel: #1A1C16; --line: #34382B; --amber: #FFB000; --signal: #9BE564; --text: #E6E2D3; --muted: #8A8672;
+          --mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace; --sans: "Segoe UI", Roboto, system-ui, sans-serif; }
+  html { background: var(--bg); }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 1.02rem/1.62 var(--sans); }
+  main { max-width: 68ch; margin: 0 auto; padding: clamp(1.5rem, 5vw, 4rem) 16px 4rem; }
+  h1 { font: 700 1.7rem/1.2 var(--mono); letter-spacing: .04em; color: var(--amber); margin: 0 0 .3rem; }
+  h2 { font: 700 1.05rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--signal); margin: 2.4rem 0 .6rem; }
+  .sub { color: var(--muted); font: .9rem/1.5 var(--mono); margin: 0 0 1.8rem; }
+  .lead { font-size: 1.12rem; font-weight: 600; border-left: 3px solid var(--amber); padding-left: 14px; }
+  ul { padding-left: 1.2rem; } li { margin: .45rem 0; }
+  a { color: var(--amber); text-underline-offset: .15em; }
+  code { font-family: var(--mono); font-size: .92em; background: var(--panel); border: 1px solid var(--line); border-radius: 3px; padding: 1px 5px; overflow-wrap: anywhere; }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; margin: .6rem 0; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { font: 600 .78rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .wrap { overflow-x: auto; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 3.2rem 0; }
+  .back { display: inline-block; margin-bottom: 1.8rem; color: var(--muted); font: .9rem var(--mono); }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="./">← 2037</a>
+
+  <h1>Политика конфиденциальности</h1>
+  <p class="sub">Игра «2037» · пакет <code>app.g2037.scanner</code><br>Обновлено 17 сентября 2026 · версия для закрытого тестирования</p>
+
+  <p class="lead">Ваши точные координаты не покидают телефон. У игры нет учётных записей, нет своего сервера, нет рекламы и нет аналитики.</p>
+
+  <h2>Коротко</h2>
+  <div class="wrap"><table>
+    <tr><th>Что</th><th>Зачем</th><th>Куда уходит</th></tr>
+    <tr><td>Геопозиция (точная)</td><td>показать карту вокруг вас, посчитать скорость и пройденный путь, расставить сигналы</td><td><strong>никуда</strong> — обрабатывается на телефоне</td></tr>
+    <tr><td>Примерный район (квадрат карты со стороной около 1,5 км)</td><td>скачать карту и данные о местности</td><td>открытому сервису карт <a href="https://openfreemap.org/">OpenFreeMap</a> — в виде номеров запрашиваемых квадратов карты; не хранится нами</td></tr>
+    <tr><td>Датчик шагов (по желанию)</td><td>отличить бег от самоката</td><td><strong>никуда</strong> — обрабатывается на телефоне</td></tr>
+  </table></div>
+
+  <h2>Геопозиция</h2>
+  <ul>
+    <li>Игра запрашивает геопозицию <strong>только пока она открыта на экране</strong>. Фоновая геопозиция не запрашивается.</li>
+    <li>Координаты используются на самом телефоне: чтобы держать вас в центре карты, определять скорость (шаг, бег, транспорт), считать пройденный путь и показывать сигналы вокруг.</li>
+    <li>Разработчику координаты не передаются: у игры сейчас нет сервера, и отправлять их некуда.</li>
+  </ul>
+
+  <h2>Карта и сервис OpenFreeMap</h2>
+  <ul>
+    <li>Карта рисуется по открытым данным OpenStreetMap. Приложение скачивает их у открытого сервиса OpenFreeMap квадратами («плитками»).</li>
+    <li>Чтобы получить нужные квадраты, приложение сообщает сервису их номера. По номерам виден <strong>примерный район</strong>, где вы находитесь (квадрат со стороной около 1,5 км), а как любому сайту — ещё и ваш IP-адрес. Точные координаты, путь и скорость сервису не передаются.</li>
+    <li>Соединение зашифровано (HTTPS). Скачанные квадраты хранятся в кэше приложения на телефоне, чтобы не качать их заново.</li>
+  </ul>
+
+  <h2>Датчик шагов</h2>
+  <p>Разрешение «Физическая активность» игра просит отдельно и не сразу. Оно нужно для одного: на скорости бега понять, бежите вы или едете на самокате. Данные о шагах не сохраняются и никуда не передаются. Можно отказать — игра продолжит работать.</p>
+
+  <h2>Что хранится на телефоне</h2>
+  <ul>
+    <li>Пройденный путь, счётчик блокировок за день, журнал выслеженных существ (страницы бестиария), кэш карты.</li>
+    <li><strong>Журнал прогулки — только в тестовых версиях.</strong> Чтобы разбирать ошибки, тестовая версия записывает на телефон файл: время, координаты, скорость, режим игры. Файл лежит в папке приложения (<code>Android/data/app.g2037.scanner/files/walks</code>), <strong>никуда не отправляется</strong>; хранится не больше 30 последних файлов. Поделиться им с разработчиком можно только вручную и только по собственному желанию. В публичной версии журнала не будет.</li>
+    <li>Всё перечисленное удаляется вместе с приложением или кнопкой «Очистить данные» в настройках телефона.</li>
+  </ul>
+
+  <h2>Чего в приложении нет</h2>
+  <p>Нет учётных записей и регистрации. Нет рекламы и рекламного идентификатора. Нет аналитики, нет сторонних средств сбора отчётов о сбоях. Нет покупок. Нет доступа к контактам, файлам, камере, микрофону.</p>
+
+  <h2>Дети</h2>
+  <p>Игра адресована игрокам от 13 лет и не предназначена для детей младшего возраста.</p>
+
+  <h2>Если что-то изменится</h2>
+  <p>В планах — сервер, учётные записи и реклама по желанию игрока. Перед выходом версии, в которой появится что-либо из этого, политика будет обновлена, а раздел «Безопасность данных» в Google Play — исправлен.</p>
+
+  <h2>Связь</h2>
+  <p>Разработчик: Ivan Zhdaniuk. Вопросы о данных и конфиденциальности: <a href="mailto:zhdaniuk.python.dev@gmail.com">zhdaniuk.python.dev@gmail.com</a>.</p>
+  <p class="sub">Карта: © участники <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · плитки <a href="https://openfreemap.org/">OpenFreeMap</a>.</p>
+
+  <hr>
+
+  <h1 lang="en">Privacy Policy</h1>
+  <div lang="en">
+  <p class="sub">The game “2037” · package <code>app.g2037.scanner</code><br>Last updated 17 September 2026 · closed-testing version</p>
+
+  <p class="lead">Your exact coordinates never leave your phone. The game has no accounts, no server of its own, no advertising and no analytics.</p>
+
+  <h2>In short</h2>
+  <div class="wrap"><table>
+    <tr><th>What</th><th>Why</th><th>Where it goes</th></tr>
+    <tr><td>Location (precise)</td><td>to show the map around you, measure your speed and distance walked, and place signals</td><td><strong>nowhere</strong> — processed on the phone</td></tr>
+    <tr><td>Approximate area (a map square about 1.5 km across)</td><td>to download the map and terrain data</td><td>to the open map service <a href="https://openfreemap.org/">OpenFreeMap</a>, as the numbers of the requested map squares; not stored by us</td></tr>
+    <tr><td>Step sensor (optional)</td><td>to tell running from riding a scooter</td><td><strong>nowhere</strong> — processed on the phone</td></tr>
+  </table></div>
+
+  <h2>Location</h2>
+  <ul>
+    <li>The game requests your location <strong>only while it is open on the screen</strong>. Background location is never requested.</li>
+    <li>Coordinates are used on the phone itself: to keep you at the centre of the map, to detect your speed (walking, running, vehicle), to count the distance you walk and to show signals around you.</li>
+    <li>Coordinates are not sent to the developer: the game currently has no server to send them to.</li>
+  </ul>
+
+  <h2>The map and OpenFreeMap</h2>
+  <ul>
+    <li>The map is drawn from open OpenStreetMap data, downloaded from the open OpenFreeMap service in squares (“tiles”).</li>
+    <li>To fetch the right squares the app tells the service their numbers. These reveal the <strong>approximate area</strong> you are in (a square about 1.5 km across) and, as with any website, your IP address. Your exact coordinates, route and speed are not sent.</li>
+    <li>The connection is encrypted (HTTPS). Downloaded squares are kept in the app's cache on your phone so they are not downloaded again.</li>
+  </ul>
+
+  <h2>Step sensor</h2>
+  <p>The “Physical activity” permission is requested separately and not at first launch. It serves one purpose: at running speed, to tell whether you are running or riding a scooter. Step data is not stored and is not sent anywhere. You may decline — the game keeps working.</p>
+
+  <h2>What is stored on the phone</h2>
+  <ul>
+    <li>Distance walked, the daily count of speed blocks, the journal of creatures you have tracked (bestiary pages), the map cache.</li>
+    <li><strong>A walk log — in test versions only.</strong> To investigate bugs, the test version writes a file on the phone: time, coordinates, speed, game mode. The file lives in the app's own folder (<code>Android/data/app.g2037.scanner/files/walks</code>) and is <strong>never sent anywhere</strong>; at most the 30 latest files are kept. It can be shared with the developer only manually and only if you choose to. The public version will not have this log.</li>
+    <li>All of the above is deleted together with the app, or with “Clear data” in your phone settings.</li>
+  </ul>
+
+  <h2>What the app does not have</h2>
+  <p>No accounts or sign-up. No advertising and no advertising ID. No analytics and no third-party crash reporting. No purchases. No access to contacts, files, camera or microphone.</p>
+
+  <h2>Children</h2>
+  <p>The game is intended for players aged 13 and over and is not directed at younger children.</p>
+
+  <h2>If anything changes</h2>
+  <p>A server, accounts and opt-in rewarded advertising are planned. Before any version containing them is released, this policy will be updated and the Data safety section on Google Play corrected.</p>
+
+  <h2>Contact</h2>
+  <p>Developer: Ivan Zhdaniuk. Questions about data and privacy: <a href="mailto:zhdaniuk.python.dev@gmail.com">zhdaniuk.python.dev@gmail.com</a>.</p>
+  <p class="sub">Map: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · tiles by <a href="https://openfreemap.org/">OpenFreeMap</a>.</p>
+  </div>
+</main>
+</body>
+</html>
