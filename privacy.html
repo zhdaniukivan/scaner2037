@@ -31,7 +31,7 @@
   <a class="back" href="./">← 2037</a>
 
   <h1>Политика конфиденциальности</h1>
-  <p class="sub">Игра «2037» · пакет <code>app.g2037.scanner</code><br>Обновлено 17 сентября 2026 · версия для закрытого тестирования</p>
+  <p class="sub">Игра «2037» · пакет <code>app.g2037.scanner</code><br>Обновлено 25 сентября 2026 · версия для закрытого тестирования</p>
 
   <p class="lead">Ваши точные координаты не покидают телефон. У игры нет учётных записей, нет своего сервера, нет рекламы и нет аналитики.</p>
 
@@ -58,10 +58,15 @@
   </ul>
 
   <h2>Датчик шагов</h2>
-  <p>Разрешение «Физическая активность» игра просит отдельно и не сразу. Оно нужно для одного: на скорости бега понять, бежите вы или едете на самокате. Данные о шагах не сохраняются и никуда не передаются. Можно отказать — игра продолжит работать.</p>
+  <p>Разрешение «Физическая активность» игра просит на первом запуске, сразу после геопозиции. Оно нужно для одного: на скорости бега понять, бежите вы или едете на самокате. Данные о шагах не сохраняются и никуда не передаются. Можно отказать — игра продолжит работать.</p>
+
+  <h2>Уведомления («весточки»)</h2>
+  <p>Игра может прислать уведомление: кто-то из ваших существ проголодался, смотрит на дверь, давно не гулял, или вы давно не открывали игру. Весточки <strong>назначаются на самом телефоне</strong>, когда вы сворачиваете игру: сервер в этом не участвует, для уведомлений <strong>ничего не собирается и никуда не передаётся</strong>. Разрешение игра просит не на первом запуске, а когда у вас появится первое существо. Можно отказать; каждый вид весточек выключается в Убежище, все разом — в настройках телефона. Не больше двух в день, с 22:00 до 8:00 игра молчит; если вы перестали играть, весточки редеют и через две недели прекращаются.</p>
 
   <h2>Что хранится на телефоне</h2>
   <ul>
+    <li>Пойманные существа и уход за ними: сытость, прозвища, уровень, нрав и черты, корм и монеты.</li>
+    <li>«Портрет следопыта» — наблюдения прибора о ваших привычках: в какие часы и как подолгу вы гуляете, по новым или знакомым местам, как заботитесь о существах. Места запоминаются <strong>не координатами</strong>, а номерами крупных клеток карты (около 250 м), по которым вы уже ходили, без времени посещения. Портрет нужен только игре — от него зависит, какие черты предложат вашим существам; он не покидает телефон.</li>
     <li>Пройденный путь, счётчик блокировок за день, журнал выслеженных существ (страницы бестиария), кэш карты.</li>
     <li><strong>Журнал прогулки — только в тестовых версиях.</strong> Чтобы разбирать ошибки, тестовая версия записывает на телефон файл: время, координаты, скорость, режим игры. Файл лежит в папке приложения (<code>Android/data/app.g2037.scanner/files/walks</code>), <strong>никуда не отправляется</strong>; хранится не больше 30 последних файлов. Поделиться им с разработчиком можно только вручную и только по собственному желанию. В публичной версии журнала не будет.</li>
     <li>Всё перечисленное удаляется вместе с приложением или кнопкой «Очистить данные» в настройках телефона.</li>
@@ -84,7 +89,7 @@
 
   <h1 lang="en">Privacy Policy</h1>
   <div lang="en">
-  <p class="sub">The game “2037” · package <code>app.g2037.scanner</code><br>Last updated 17 September 2026 · closed-testing version</p>
+  <p class="sub">The game “2037” · package <code>app.g2037.scanner</code><br>Last updated 25 September 2026 · closed-testing version</p>
 
   <p class="lead">Your exact coordinates never leave your phone. The game has no accounts, no server of its own, no advertising and no analytics.</p>
 
@@ -111,10 +116,15 @@
   </ul>
 
   <h2>Step sensor</h2>
-  <p>The “Physical activity” permission is requested separately and not at first launch. It serves one purpose: at running speed, to tell whether you are running or riding a scooter. Step data is not stored and is not sent anywhere. You may decline — the game keeps working.</p>
+  <p>The “Physical activity” permission is requested at first launch, right after location. It serves one purpose: at running speed, to tell whether you are running or riding a scooter. Step data is not stored and is not sent anywhere. You may decline — the game keeps working.</p>
+
+  <h2>Notifications (“tidings”)</h2>
+  <p>The game may send a notification: one of your creatures is hungry, eyeing the door, missing a walk, or you have not opened the game for a while. Tidings are <strong>scheduled on the phone itself</strong> when you leave the game: no server is involved, and <strong>nothing is collected or sent anywhere</strong> for them. The permission is requested not at first launch but once you have your first creature. You may decline; each kind of tiding can be switched off in the Shelter, and all of them in your phone settings. No more than two a day, silent from 22:00 to 8:00; if you stop playing, tidings thin out and cease after two weeks.</p>
 
   <h2>What is stored on the phone</h2>
   <ul>
+    <li>The creatures you caught and their care: satiety, nicknames, level, temper and traits, food and coins.</li>
+    <li>A “tracker's portrait” — the scanner's observations of your habits: at what hours and for how long you walk, through new or familiar places, how you care for your creatures. Places are remembered <strong>not as coordinates</strong> but as numbers of large map cells (about 250 m) you have already walked through, with no visit times. The portrait serves the game only — it shapes which traits your creatures are offered; it never leaves the phone.</li>
     <li>Distance walked, the daily count of speed blocks, the journal of creatures you have tracked (bestiary pages), the map cache.</li>
     <li><strong>A walk log — in test versions only.</strong> To investigate bugs, the test version writes a file on the phone: time, coordinates, speed, game mode. The file lives in the app's own folder (<code>Android/data/app.g2037.scanner/files/walks</code>) and is <strong>never sent anywhere</strong>; at most the 30 latest files are kept. It can be shared with the developer only manually and only if you choose to. The public version will not have this log.</li>
     <li>All of the above is deleted together with the app, or with “Clear data” in your phone settings.</li>
