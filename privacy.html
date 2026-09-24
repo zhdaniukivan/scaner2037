@@ -22,6 +22,7 @@
   th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
   th { font: 600 .78rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
   .wrap { overflow-x: auto; }
+  .box { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 12px 16px; }
   hr { border: 0; border-top: 1px solid var(--line); margin: 3.2rem 0; }
   .back { display: inline-block; margin-bottom: 1.8rem; color: var(--muted); font: .9rem var(--mono); }
 </style>
@@ -33,57 +34,94 @@
   <h1>Политика конфиденциальности</h1>
   <p class="sub">Игра «2037» · пакет <code>app.g2037.scanner</code><br>Обновлено 25 сентября 2026 · версия для закрытого тестирования</p>
 
-  <p class="lead">Ваши точные координаты не покидают телефон. У игры нет учётных записей, нет своего сервера, нет рекламы и нет аналитики.</p>
+  <p class="lead">У игры есть сервер — «Гильдия». Он знает вас по случайному номеру: без имени, почты и пароля.
+  Точные координаты уходят на сервер только из охоты — чтобы проверить, что она была пешей. Ваше место не видит ни один другой игрок.
+  Всё, что знает о вас Гильдия, можно удалить прямо в игре.</p>
 
   <h2>Коротко</h2>
   <div class="wrap"><table>
     <tr><th>Что</th><th>Зачем</th><th>Куда уходит</th></tr>
-    <tr><td>Геопозиция (точная)</td><td>показать карту вокруг вас, посчитать скорость и пройденный путь, расставить сигналы</td><td><strong>никуда</strong> — обрабатывается на телефоне</td></tr>
-    <tr><td>Примерный район (квадрат карты со стороной около 1,5 км)</td><td>скачать карту и данные о местности</td><td>открытому сервису карт <a href="https://openfreemap.org/">OpenFreeMap</a> — в виде номеров запрашиваемых квадратов карты; не хранится нами</td></tr>
-    <tr><td>Датчик шагов (по желанию)</td><td>отличить бег от самоката</td><td><strong>никуда</strong> — обрабатывается на телефоне</td></tr>
+    <tr><td>Геопозиция (точная)</td><td>карта вокруг вас, скорость, пройденный путь, сигналы</td><td>остаётся на телефоне</td></tr>
+    <tr><td>Точки охоты: где вы прочли метки следа и где настигли существо, с временем</td><td>проверить, что охота была пешей (защита от подмены места)</td><td>серверу Гильдии; хранятся 90 дней</td></tr>
+    <tr><td>Место на время поиска дуэли (точность около 100 м)</td><td>найти соперника в пределах 500 м</td><td>серверу Гильдии; стирается через час</td></tr>
+    <tr><td>Примерное место объявления на рынке (около 10 км)</td><td>посчитать дорогу посылки</td><td>серверу Гильдии; другим игрокам — только название города</td></tr>
+    <tr><td>Домашний квадрат (около 5 км, где вы больше всего ходили за 30 дней)</td><td>рейтинг района, города и страны</td><td>серверу Гильдии — центр квадрата, не ваше место</td></tr>
+    <tr><td>Случайный номер гостя</td><td>узнать вас в Гильдии</td><td>серверу Гильдии</td></tr>
+    <tr><td>Игровые данные: коллекция, журнал, путь, недельные счета, бои, заставы, объявления, вклад в события</td><td>чтобы коллекция не пропала и работали общие события, рейтинги, обмен, бои</td><td>серверу Гильдии</td></tr>
+    <tr><td>Номера квадратов карты (около 1,5 км)</td><td>скачать карту</td><td>открытому сервису <a href="https://openfreemap.org/">OpenFreeMap</a></td></tr>
+    <tr><td>Датчик шагов, «портрет следопыта», весточки</td><td>игра на телефоне</td><td>остаются на телефоне</td></tr>
   </table></div>
+
+  <h2>Сервер «Гильдия»</h2>
+  <ul>
+    <li>При первом запуске игра заводит на сервере гостевую запись: случайный номер и ключ к нему. Имени, почты, телефона, пароля игра не спрашивает. Ключ хранится в настройках игры на телефоне.</li>
+    <li>Сервер находится по адресу <code>g2037.aivcore.com</code> и принадлежит разработчику. Соединение зашифровано (HTTPS).</li>
+    <li>Что уходит на сервер — в таблице выше. Для игры по сети сервер хранит: какие существа у вас пойманы и сколько раз выслежены, пройденный путь, недельные счета (километры, охоты, открытые виды, бои, события), записи боёв (команда и приказы — сервер пересчитывает бой сам, чтобы исход был честным), ваши заставы, объявления на рынке и сделки, отправленные готовые фразы, вклад в мощные сигналы, сколько редчайших существ у вас есть.</li>
+    <li>Как у любого сайта, сервер видит ваш IP-адрес; он попадает только в технические журналы сервера и хранится не дольше нескольких недель.</li>
+    <li>Данные не продаются, не используются для рекламы и не передаются третьим лицам, кроме указанного в разделе «Кому ещё».</li>
+  </ul>
+
+  <h2>Что видят другие игроки</h2>
+  <ul>
+    <li>Ваше место не видит никто. Другие игроки знают вас только по позывному — первым шести знакам номера гостя.</li>
+    <li>В рейтингах — позывной и очки недели. Режим «невидимка» (в «Сводке Гильдии») скрывает позывной из списков; ваши километры району засчитываются.</li>
+    <li>На рынке — существо, его рост и черты, название города. В дуэли — ваша команда. На заставе — её защитники (тактика скрыта).</li>
+    <li>Общение между игроками — только готовыми фразами («Согласен», «Спасибо»…). Свободного текста, чатов и личных сообщений в игре нет.</li>
+  </ul>
+
+  <h2>Кому ещё</h2>
+  <ul>
+    <li><strong>OpenFreeMap</strong> — карта. Телефон сам запрашивает квадраты карты по их номерам; по ним виден примерный район (около 1,5 км) и IP-адрес. Точные координаты, путь и скорость сервису не передаются.</li>
+    <li><strong>Nominatim (OpenStreetMap Foundation)</strong> — названия районов для рейтинга. Сервер Гильдии отправляет туда центр домашнего квадрата (около 5 км) — без номера игрока и без IP-адреса игрока; ответ хранится по квадрату, а не по игроку.</li>
+  </ul>
 
   <h2>Геопозиция</h2>
   <ul>
     <li>Игра запрашивает геопозицию <strong>только пока она открыта на экране</strong>. Фоновая геопозиция не запрашивается.</li>
-    <li>Координаты используются на самом телефоне: чтобы держать вас в центре карты, определять скорость (шаг, бег, транспорт), считать пройденный путь и показывать сигналы вокруг.</li>
-    <li>Разработчику координаты не передаются: у игры сейчас нет сервера, и отправлять их некуда.</li>
-  </ul>
-
-  <h2>Карта и сервис OpenFreeMap</h2>
-  <ul>
-    <li>Карта рисуется по открытым данным OpenStreetMap. Приложение скачивает их у открытого сервиса OpenFreeMap квадратами («плитками»).</li>
-    <li>Чтобы получить нужные квадраты, приложение сообщает сервису их номера. По номерам виден <strong>примерный район</strong>, где вы находитесь (квадрат со стороной около 1,5 км), а как любому сайту — ещё и ваш IP-адрес. Точные координаты, путь и скорость сервису не передаются.</li>
-    <li>Соединение зашифровано (HTTPS). Скачанные квадраты хранятся в кэше приложения на телефоне, чтобы не качать их заново.</li>
+    <li>Путь, скорость и сигналы вокруг считаются на телефоне. На сервер уходят только перечисленные выше точки — охоты, поиск дуэли, примерное место объявления, центр домашнего квадрата.</li>
   </ul>
 
   <h2>Датчик шагов</h2>
   <p>Разрешение «Физическая активность» игра просит на первом запуске, сразу после геопозиции. Оно нужно для одного: на скорости бега понять, бежите вы или едете на самокате. Данные о шагах не сохраняются и никуда не передаются. Можно отказать — игра продолжит работать.</p>
 
   <h2>Уведомления («весточки»)</h2>
-  <p>Игра может прислать уведомление: кто-то из ваших существ проголодался, смотрит на дверь, давно не гулял, или вы давно не открывали игру. Весточки <strong>назначаются на самом телефоне</strong>, когда вы сворачиваете игру: сервер в этом не участвует, для уведомлений <strong>ничего не собирается и никуда не передаётся</strong>. Разрешение игра просит не на первом запуске, а когда у вас появится первое существо. Можно отказать; каждый вид весточек выключается в Убежище, все разом — в настройках телефона. Не больше двух в день, с 22:00 до 8:00 игра молчит; если вы перестали играть, весточки редеют и через две недели прекращаются.</p>
+  <p>Игра может прислать уведомление: кто-то из ваших существ проголодался, смотрит на дверь, давно не гулял, рядом мощный сигнал, пришла посылка, или вы давно не открывали игру. Весточки <strong>назначаются на самом телефоне</strong>: для уведомлений ничего не собирается и никуда не передаётся. Разрешение игра просит, когда у вас появится первое существо. Можно отказать; каждый вид весточек выключается в Убежище, все разом — в настройках телефона. Не больше двух в день, с 22:00 до 8:00 игра молчит.</p>
 
-  <h2>Что хранится на телефоне</h2>
+  <h2>Что хранится только на телефоне</h2>
   <ul>
-    <li>Пойманные существа и уход за ними: сытость, прозвища, уровень, нрав и черты, корм и монеты.</li>
-    <li>«Портрет следопыта» — наблюдения прибора о ваших привычках: в какие часы и как подолгу вы гуляете, по новым или знакомым местам, как заботитесь о существах. Места запоминаются <strong>не координатами</strong>, а номерами крупных клеток карты (около 250 м), по которым вы уже ходили, без времени посещения. Портрет нужен только игре — от него зависит, какие черты предложат вашим существам; он не покидает телефон.</li>
-    <li>Пройденный путь, счётчик блокировок за день, журнал выслеженных существ (страницы бестиария), кэш карты.</li>
-    <li><strong>Журнал прогулки — только в тестовых версиях.</strong> Чтобы разбирать ошибки, тестовая версия записывает на телефон файл: время, координаты, скорость, режим игры. Файл лежит в папке приложения (<code>Android/data/app.g2037.scanner/files/walks</code>), <strong>никуда не отправляется</strong>; хранится не больше 30 последних файлов. Поделиться им с разработчиком можно только вручную и только по собственному желанию. В публичной версии журнала не будет.</li>
-    <li>Всё перечисленное удаляется вместе с приложением или кнопкой «Очистить данные» в настройках телефона.</li>
+    <li>Уход за существами: сытость, прозвища, нрав и черты, корм и монеты.</li>
+    <li>«Портрет следопыта» — наблюдения прибора о ваших привычках: в какие часы и как подолгу вы гуляете, по новым или знакомым местам. Места запоминаются номерами крупных клеток карты (около 250 м), без времени посещения. Портрет не покидает телефон.</li>
+    <li>Кэш карты, счётчик блокировок по скорости.</li>
+    <li><strong>Журнал прогулки — только в тестовых версиях</strong>: время, координаты, скорость, режим игры — в папке приложения (<code>Android/data/app.g2037.scanner/files/walks</code>), никуда не отправляется, не больше 30 файлов. Передать его разработчику можно только вручную и по собственному желанию.</li>
+    <li>Всё это удаляется вместе с приложением или кнопкой «Очистить данные» в настройках телефона.</li>
   </ul>
 
+  <h2>Сколько хранится</h2>
+  <ul>
+    <li>Гостевая запись и игровые данные — пока вы играете. Если в игру не заходили <strong>год</strong>, запись стирается со всем содержимым.</li>
+    <li>Точки охот — 90 дней. Место при поиске дуэли — час. Вклад в мощный сигнал — сутки после его конца.</li>
+    <li>Технические журналы сервера (с IP-адресами) — не дольше нескольких недель.</li>
+  </ul>
+
+  <h2 id="delete">Как удалить свои данные</h2>
+  <div class="box">
+    <p><strong>В игре:</strong> кнопка «?» (Памятка следопыта) → раздел «Данные и Гильдия» → <strong>«Удалить мои данные в Гильдии»</strong>. Сервер сразу стирает гостевую запись и всё, что с ней связано: коллекцию, путь, охоты, рейтинги, объявления и фразы, заставы, бои. Отменить нельзя.</p>
+    <p><strong>Без игры:</strong> напишите на <a href="mailto:zhdaniuk.python.dev@gmail.com?subject=2037%20%E2%80%94%20delete%20my%20data">zhdaniuk.python.dev@gmail.com</a> и укажите номер гостя (он показан в том же разделе игры). Данные будут удалены в течение 30 дней, ответим письмом.</p>
+    <p>Данные на телефоне удаляются вместе с игрой. Если после удаления продолжить играть, Гильдия заведёт новую, пустую запись.</p>
+  </div>
+
   <h2>Чего в приложении нет</h2>
-  <p>Нет учётных записей и регистрации. Нет рекламы и рекламного идентификатора. Нет аналитики, нет сторонних средств сбора отчётов о сбоях. Нет покупок. Нет доступа к контактам, файлам, камере, микрофону.</p>
+  <p>Нет регистрации по имени, почте или телефону. Нет рекламы и рекламного идентификатора. Нет аналитики и сторонних средств сбора отчётов о сбоях. Нет покупок. Нет доступа к контактам, файлам, камере, микрофону.</p>
 
   <h2>Дети</h2>
   <p>Игра адресована игрокам от 13 лет и не предназначена для детей младшего возраста.</p>
 
   <h2>Если что-то изменится</h2>
-  <p>В планах — сервер, учётные записи и реклама по желанию игрока. Перед выходом версии, в которой появится что-либо из этого, политика будет обновлена, а раздел «Безопасность данных» в Google Play — исправлен.</p>
+  <p>В планах — реклама по желанию игрока (ролик по нажатию, за награду). Перед выходом версии с ней политика будет обновлена, а раздел «Безопасность данных» в Google Play — исправлен.</p>
 
   <h2>Связь</h2>
   <p>Разработчик: Ivan Zhdaniuk. Вопросы о данных и конфиденциальности: <a href="mailto:zhdaniuk.python.dev@gmail.com">zhdaniuk.python.dev@gmail.com</a>.</p>
-  <p class="sub">Карта: © участники <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · плитки <a href="https://openfreemap.org/">OpenFreeMap</a>.</p>
+  <p class="sub">Карта: © участники <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · плитки <a href="https://openfreemap.org/">OpenFreeMap</a> · названия районов <a href="https://nominatim.org/">Nominatim</a>.</p>
 
   <hr>
 
@@ -91,57 +129,94 @@
   <div lang="en">
   <p class="sub">The game “2037” · package <code>app.g2037.scanner</code><br>Last updated 25 September 2026 · closed-testing version</p>
 
-  <p class="lead">Your exact coordinates never leave your phone. The game has no accounts, no server of its own, no advertising and no analytics.</p>
+  <p class="lead">The game has a server — the “Guild”. It knows you by a random number: no name, email or password.
+  Precise coordinates reach the server only from a hunt — to check that it was done on foot. No other player can see where you are.
+  Everything the Guild knows about you can be deleted right in the game.</p>
 
   <h2>In short</h2>
   <div class="wrap"><table>
     <tr><th>What</th><th>Why</th><th>Where it goes</th></tr>
-    <tr><td>Location (precise)</td><td>to show the map around you, measure your speed and distance walked, and place signals</td><td><strong>nowhere</strong> — processed on the phone</td></tr>
-    <tr><td>Approximate area (a map square about 1.5 km across)</td><td>to download the map and terrain data</td><td>to the open map service <a href="https://openfreemap.org/">OpenFreeMap</a>, as the numbers of the requested map squares; not stored by us</td></tr>
-    <tr><td>Step sensor (optional)</td><td>to tell running from riding a scooter</td><td><strong>nowhere</strong> — processed on the phone</td></tr>
+    <tr><td>Location (precise)</td><td>the map around you, speed, distance walked, signals</td><td>stays on the phone</td></tr>
+    <tr><td>Hunt points: where you read the trail marks and where you caught up with the creature, with times</td><td>to check the hunt was done on foot (protection against location spoofing)</td><td>to the Guild server; kept 90 days</td></tr>
+    <tr><td>Location while looking for a duel (about 100 m accuracy)</td><td>to find a rival within 500 m</td><td>to the Guild server; erased after one hour</td></tr>
+    <tr><td>Approximate place of a market listing (about 10 km)</td><td>to work out the parcel's journey</td><td>to the Guild server; other players see only the city name</td></tr>
+    <tr><td>Home square (about 5 km, where you walked most in 30 days)</td><td>district, city and country rankings</td><td>to the Guild server — the centre of the square, not your location</td></tr>
+    <tr><td>Random guest number</td><td>to recognise you in the Guild</td><td>to the Guild server</td></tr>
+    <tr><td>Game data: collection, journal, distance, weekly scores, fights, outposts, listings, event contributions</td><td>so your collection is not lost and shared events, rankings, trading and fights work</td><td>to the Guild server</td></tr>
+    <tr><td>Map square numbers (about 1.5 km)</td><td>to download the map</td><td>to the open service <a href="https://openfreemap.org/">OpenFreeMap</a></td></tr>
+    <tr><td>Step sensor, “tracker's portrait”, tidings</td><td>gameplay on the phone</td><td>stay on the phone</td></tr>
   </table></div>
+
+  <h2>The “Guild” server</h2>
+  <ul>
+    <li>On first launch the game creates a guest record on the server: a random number and a key for it. The game never asks for a name, email, phone number or password. The key is kept in the game's settings on your phone.</li>
+    <li>The server is at <code>g2037.aivcore.com</code> and belongs to the developer. The connection is encrypted (HTTPS).</li>
+    <li>What reaches the server is listed above. For online play the server keeps: which creatures you caught and how many times you tracked them, distance walked, weekly scores (kilometres, hunts, species found, fights, events), fight records (team and orders — the server replays the fight itself so the outcome is fair), your outposts, market listings and trades, the preset phrases you sent, contributions to powerful signals, how many of the rarest creatures you own.</li>
+    <li>Like any website, the server sees your IP address; it only appears in the server's technical logs, kept for no more than a few weeks.</li>
+    <li>Data is not sold, not used for advertising and not shared with third parties except as listed under “Who else”.</li>
+  </ul>
+
+  <h2>What other players see</h2>
+  <ul>
+    <li>Nobody can see where you are. Other players know you only by a call sign — the first six characters of your guest number.</li>
+    <li>In rankings — your call sign and weekly points. “Invisible” mode (in the Guild Summary) hides your call sign from the lists; your kilometres still count for your district.</li>
+    <li>On the market — the creature, its growth and traits, the city name. In a duel — your team. At an outpost — its defenders (the tactic is hidden).</li>
+    <li>Players communicate only with preset phrases (“Agreed”, “Thanks”…). There is no free text, chat or private messaging.</li>
+  </ul>
+
+  <h2>Who else</h2>
+  <ul>
+    <li><strong>OpenFreeMap</strong> — the map. The phone requests map squares by their numbers; these reveal the approximate area (about 1.5 km) and your IP address. Exact coordinates, route and speed are not sent.</li>
+    <li><strong>Nominatim (OpenStreetMap Foundation)</strong> — district names for the rankings. The Guild server sends it the centre of your home square (about 5 km) — without your player number and without your IP address; the answer is stored per square, not per player.</li>
+  </ul>
 
   <h2>Location</h2>
   <ul>
     <li>The game requests your location <strong>only while it is open on the screen</strong>. Background location is never requested.</li>
-    <li>Coordinates are used on the phone itself: to keep you at the centre of the map, to detect your speed (walking, running, vehicle), to count the distance you walk and to show signals around you.</li>
-    <li>Coordinates are not sent to the developer: the game currently has no server to send them to.</li>
-  </ul>
-
-  <h2>The map and OpenFreeMap</h2>
-  <ul>
-    <li>The map is drawn from open OpenStreetMap data, downloaded from the open OpenFreeMap service in squares (“tiles”).</li>
-    <li>To fetch the right squares the app tells the service their numbers. These reveal the <strong>approximate area</strong> you are in (a square about 1.5 km across) and, as with any website, your IP address. Your exact coordinates, route and speed are not sent.</li>
-    <li>The connection is encrypted (HTTPS). Downloaded squares are kept in the app's cache on your phone so they are not downloaded again.</li>
+    <li>Distance, speed and signals around you are computed on the phone. Only the points listed above reach the server — hunts, duel search, the approximate place of a listing, the centre of your home square.</li>
   </ul>
 
   <h2>Step sensor</h2>
   <p>The “Physical activity” permission is requested at first launch, right after location. It serves one purpose: at running speed, to tell whether you are running or riding a scooter. Step data is not stored and is not sent anywhere. You may decline — the game keeps working.</p>
 
   <h2>Notifications (“tidings”)</h2>
-  <p>The game may send a notification: one of your creatures is hungry, eyeing the door, missing a walk, or you have not opened the game for a while. Tidings are <strong>scheduled on the phone itself</strong> when you leave the game: no server is involved, and <strong>nothing is collected or sent anywhere</strong> for them. The permission is requested not at first launch but once you have your first creature. You may decline; each kind of tiding can be switched off in the Shelter, and all of them in your phone settings. No more than two a day, silent from 22:00 to 8:00; if you stop playing, tidings thin out and cease after two weeks.</p>
+  <p>The game may send a notification: a creature is hungry, eyeing the door, missing a walk, a powerful signal is near, a parcel has arrived, or you have not opened the game for a while. Tidings are <strong>scheduled on the phone itself</strong>: nothing is collected or sent anywhere for them. The permission is requested once you have your first creature. You may decline; each kind can be switched off in the Shelter, all of them in your phone settings. No more than two a day, silent from 22:00 to 8:00.</p>
 
-  <h2>What is stored on the phone</h2>
+  <h2>What stays on the phone only</h2>
   <ul>
-    <li>The creatures you caught and their care: satiety, nicknames, level, temper and traits, food and coins.</li>
-    <li>A “tracker's portrait” — the scanner's observations of your habits: at what hours and for how long you walk, through new or familiar places, how you care for your creatures. Places are remembered <strong>not as coordinates</strong> but as numbers of large map cells (about 250 m) you have already walked through, with no visit times. The portrait serves the game only — it shapes which traits your creatures are offered; it never leaves the phone.</li>
-    <li>Distance walked, the daily count of speed blocks, the journal of creatures you have tracked (bestiary pages), the map cache.</li>
-    <li><strong>A walk log — in test versions only.</strong> To investigate bugs, the test version writes a file on the phone: time, coordinates, speed, game mode. The file lives in the app's own folder (<code>Android/data/app.g2037.scanner/files/walks</code>) and is <strong>never sent anywhere</strong>; at most the 30 latest files are kept. It can be shared with the developer only manually and only if you choose to. The public version will not have this log.</li>
-    <li>All of the above is deleted together with the app, or with “Clear data” in your phone settings.</li>
+    <li>Care of your creatures: satiety, nicknames, temper and traits, food and coins.</li>
+    <li>The “tracker's portrait” — the scanner's observations of your habits: at what hours and for how long you walk, through new or familiar places. Places are remembered as numbers of large map cells (about 250 m), with no visit times. The portrait never leaves the phone.</li>
+    <li>The map cache, the count of speed blocks.</li>
+    <li><strong>A walk log — in test versions only</strong>: time, coordinates, speed, game mode — in the app's own folder (<code>Android/data/app.g2037.scanner/files/walks</code>), never sent anywhere, at most 30 files. It can be shared with the developer only manually and only if you choose to.</li>
+    <li>All of this is deleted with the app, or with “Clear data” in your phone settings.</li>
   </ul>
 
+  <h2>How long data is kept</h2>
+  <ul>
+    <li>The guest record and game data — while you play. If the game has not been opened for <strong>a year</strong>, the record is erased with everything in it.</li>
+    <li>Hunt points — 90 days. Location while looking for a duel — one hour. Contributions to a powerful signal — one day after it ends.</li>
+    <li>Server technical logs (with IP addresses) — no more than a few weeks.</li>
+  </ul>
+
+  <h2 id="delete-en">How to delete your data</h2>
+  <div class="box">
+    <p><strong>In the game:</strong> the “?” button (Tracker's Notes) → “Data and the Guild” → <strong>“Delete my data in the Guild”</strong>. The server immediately erases the guest record and everything linked to it: collection, distance, hunts, rankings, listings and phrases, outposts, fights. This cannot be undone.</p>
+    <p><strong>Without the game:</strong> write to <a href="mailto:zhdaniuk.python.dev@gmail.com?subject=2037%20%E2%80%94%20delete%20my%20data">zhdaniuk.python.dev@gmail.com</a> with your guest number (shown in the same section of the game). Your data will be deleted within 30 days, and we will reply by email.</p>
+    <p>Data on the phone is deleted together with the game. If you keep playing after deletion, the Guild will start a new, empty record.</p>
+  </div>
+
   <h2>What the app does not have</h2>
-  <p>No accounts or sign-up. No advertising and no advertising ID. No analytics and no third-party crash reporting. No purchases. No access to contacts, files, camera or microphone.</p>
+  <p>No sign-up by name, email or phone. No advertising and no advertising ID. No analytics and no third-party crash reporting. No purchases. No access to contacts, files, camera or microphone.</p>
 
   <h2>Children</h2>
   <p>The game is intended for players aged 13 and over and is not directed at younger children.</p>
 
   <h2>If anything changes</h2>
-  <p>A server, accounts and opt-in rewarded advertising are planned. Before any version containing them is released, this policy will be updated and the Data safety section on Google Play corrected.</p>
+  <p>Opt-in rewarded advertising (a video on tap, for a reward) is planned. Before a version containing it is released, this policy will be updated and the Data safety section on Google Play corrected.</p>
 
   <h2>Contact</h2>
   <p>Developer: Ivan Zhdaniuk. Questions about data and privacy: <a href="mailto:zhdaniuk.python.dev@gmail.com">zhdaniuk.python.dev@gmail.com</a>.</p>
-  <p class="sub">Map: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · tiles by <a href="https://openfreemap.org/">OpenFreeMap</a>.</p>
+  <p class="sub">Map: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · tiles by <a href="https://openfreemap.org/">OpenFreeMap</a> · district names by <a href="https://nominatim.org/">Nominatim</a>.</p>
   </div>
 </main>
 </body>
